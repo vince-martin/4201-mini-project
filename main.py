@@ -17,7 +17,7 @@ cart_logger = cloud_client.logger("cart-service")
 @app.before_request
 def assign_correlation_id():
     g.correlation_id = (
-        request.headers.get("X-Correlation-ID")
+        request.headers.get("correlation-id")
         or request.headers.get("X-Request-ID")
         or str(uuid.uuid4())
     )
